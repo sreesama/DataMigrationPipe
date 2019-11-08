@@ -24,9 +24,14 @@ def getConnectionODBC(driver, input_db_details):
         conn = err
     return error, conn
 
-def initiateConnection(config_details):
+def initiateConnection(config_details, type):
     conn = '';
     error = '';
+    if (type == 'o' and config_details['dbtype'] == 'tweets'):
+        error = 'ERROR'
+        conn = 'Un Supported output type'
+        return error, conn
+
     if (config_details['dbtype'] == 'my_sql'):
         driver = 'DRIVER={MySQL ODBC 3.51 Driver}'
         error, conn = getConnectionODBC(driver, config_details)
@@ -62,7 +67,7 @@ def startExtract(conn):
 
     return dataDFList
 def main():
-    error, conn = initiateConnection(input_db_details)
+    error, conn = initiateConnection(input_db_details, 'i')
 
     if (error == 'ERROR'):
         print('ALERT....'+ str(conn))
@@ -75,7 +80,7 @@ def main():
     dataDFListTransform = tfm.processTransform(dataDFList);
 
     print('---> Starting Load Process')
-    error, connL = initiateConnection(output_db_details)
+    error, connL = initiateConnection(output_db_details, 'o')
     if (error == 'ERROR'):
         print('ALERT....' + str(conn))
         return;
