@@ -58,7 +58,7 @@ def initiateConnection(config_details, type):
 def startExtract(conn):
     if (input_db_details['dbtype'] == 'csv'):
         rows = ext.processExtractCSV(input_db_details['csvloc'])
-        dataDFList = [['csv', rows]]
+        dataDFList = ['csv', rows]
     elif (input_db_details['dbtype'] == 'tweets'):
         rows = twt.extractTweets(input_db_details['search_words'],input_db_details['date_since'])
         dataDFList = [['tweets', rows]]
