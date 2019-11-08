@@ -33,7 +33,7 @@ def initiateConnection(config_details, type):
         return error, conn
 
     if (config_details['dbtype'] == 'my_sql'):
-        driver = 'DRIVER={MySQL ODBC 3.51 Driver}'
+        driver = 'DRIVER={MySQL ODBC 8.0 ANSI Driver}'
         error, conn = getConnectionODBC(driver, config_details)
     elif(config_details['dbtype'] == 'sql_server'):
         driver = 'DRIVER={ODBC Driver 17 for SQL Server}'
