@@ -5,19 +5,19 @@ This project provides an automated approach for Data migration from multiple sou
 Supported Data Sources:
 
 Input :
-  MY SQL
-  SQL SERVER
-  SQLITE
-  POSTGRES
-  CSV
-  Twitter
+  MY SQL, 
+  SQL SERVER, 
+  SQLITE, 
+  POSTGRES, 
+  CSV, 
+  Twitter 
   
   
 Output:
-  MY SQL
-  SQL SERVER
-  SQLITE
-  POSTGRES
+  MY SQL, 
+  SQL SERVER, 
+  SQLITE, 
+  POSTGRES, 
   CSV
   
 Input.py accepts the input/output config detais:
